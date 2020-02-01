@@ -1,0 +1,17 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: static/assets
+public_folder: assets
+collections:
+  - name: pages
+    label: Pages
+    files:
+      - label: "Homepage"
+        name: "homepage"
+        file: "content/homepage.md"
+        fields:
+          - { name: hero_image, label: Hero Image, widget: image }
+          - { name: title, label: Title, widget: string }
+          - { name: subtitle, label: Subtitle, widget: text }
+          - { name: button_text, label: Button Text, widget: string }
