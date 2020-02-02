@@ -32,7 +32,7 @@ export default function homepage({ data }) {
           right: 0,
           bottom: 0,
           left: 0,
-          background: `linear-gradient(to bottom left, rgba(255, 255, 255, .1), rgba(255, 255, 255, .8)`,
+          background: 'linear-gradient(to bottom left, rgba(255, 255, 255, .1), rgba(255, 255, 255, .8))',
           zIndex: -5,
         }}/>
       <div className="p-5 mb-4 animated fadeInLeftBig delay-2s ">
