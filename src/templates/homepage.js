@@ -67,7 +67,7 @@ export const query = graphql`
     }
     image: file(relativePath: { eq: $hero_image }) {
       childImageSharp {
-        fluid(maxWidth: 2500, duotone: { highlight: "#fafafa", shadow: "#333333" }, toFormat: PNG) {
+        fluid(maxWidth: 2500, duotone: { highlight: "#fafafa", shadow: "#111111" }, toFormat: PNG) {
           ...GatsbyImageSharpFluid
         }
       }
