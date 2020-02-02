@@ -15,18 +15,11 @@ export default function Homepage({ data }) {
     button_text,
   } = data.post.edges[0].node.childMarkdownRemark.frontmatter
 
-  const [imageLoaded, setImageLoaded] = useState(false)
-
-  const handleImageLoaded = () => {
-    setImageLoaded(true)
-  }
-
   return (
     <BackgroundImage
       tag="div"
       fluid={data.image.childImageSharp.fluid}
       backgroundColor="#333333"
-      onLoad={handleImageLoaded}
       style={{
         backgroundSize: "cover",
         minHeight: "100vh",
@@ -35,31 +28,33 @@ export default function Homepage({ data }) {
       }}
     >
       <Helmet>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"/>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+        />
       </Helmet>
-      {/* {imageLoaded ? ( */}
-        <div>
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0,
-              background:
-                "linear-gradient(to bottom left, rgba(255, 255, 255, .1), rgba(255, 255, 255, .8))",
-              zIndex: -5,
-            }}
-          />
-          <div className="p-5 mb-4 animated fadeInLeftBig delay-2s faster">
-            <h1 className="display-4">{title}</h1>
-            <p className="lead">{subtitle}</p>
-            <Button href="#" color="primary" size="lg">
-              {button_text}
-            </Button>
-          </div>
+      <div>
+        <span
+          className="animated fadeIn delay-1s animated-element"
+          style={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0,
+            background:
+              "linear-gradient(to bottom left, rgba(255, 255, 255, .1), rgba(255, 255, 255, .8))",
+            zIndex: -5,
+          }}
+        />
+        <div className="p-5 mb-4 animated fadeInLeftBig faster delay-2s animated-element">
+          <h1 className="display-4">{title}</h1>
+          <p className="lead">{subtitle}</p>
+          <Button href="#" color="primary" size="lg">
+            {button_text}
+          </Button>
         </div>
-      {/* ) : null} */}
+      </div>
     </BackgroundImage>
   )
 }
@@ -87,9 +82,10 @@ export const query = graphql`
     image: file(relativePath: { eq: $hero_image }) {
       childImageSharp {
         fluid(
-          maxWidth: 2500
+          maxWidth: 1920
+          maxHeight: 1080
           duotone: { highlight: "#fafafa", shadow: "#111111" }
-          toFormat: PNG
+          quality: 30
         ) {
           ...GatsbyImageSharpFluid
         }
