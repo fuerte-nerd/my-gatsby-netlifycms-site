@@ -1,7 +1,9 @@
 ---
-hero_image: assets/aerial-photography-of-buildings-near-sea-3560024.jpg
+hero_image: assets/sidewalk-entrance-to-a-white-building-1790584.jpg
 title: Qué Chulo!
-subtitle: Me llamo David.  Welcome to the coolest website on the planet!
+subtitle: >-
+  Me llamo David.  Welcome to the coolest website on the planet!  Not much to
+  look at, I know.
 button_text: Go beyond!
 ---
 
