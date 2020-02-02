@@ -35,7 +35,6 @@ export default function Homepage({ data }) {
       </Helmet>
       <div>
         <span
-          className="animated fadeIn delay-1s animated-element"
           style={{
             position: "absolute",
             top: 0,
