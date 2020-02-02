@@ -3,7 +3,9 @@ import { graphql } from "gatsby"
 
 import BackgroundImage from "gatsby-background-image"
 
-import { Container, Button } from "reactstrap"
+import { Button } from "reactstrap"
+
+import { useSpring, animated } from "react-spring"
 
 import "../components/styles.scss"
 
@@ -19,6 +21,20 @@ export default function Homepage({ data }) {
   const handleImageLoaded = () => {
     setImageLoaded(true)
   }
+
+  const gradientAnimationProps = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    delay: 1000,
+  })
+  const heroAnimationProps = useSpring({
+    from: {
+      transform: "translateX(-1000px)",
+    },
+    to: { transform: "translateX(0px)" },
+    delay: 2000,
+  })
+
   return (
     <BackgroundImage
       tag="div"
@@ -34,8 +50,7 @@ export default function Homepage({ data }) {
     >
       {imageLoaded ? (
         <div>
-          <div
-            className="animated fadeIn delay-1s fast"
+          <animated.div
             style={{
               position: "absolute",
               top: 0,
@@ -45,15 +60,16 @@ export default function Homepage({ data }) {
               background:
                 "linear-gradient(to bottom left, rgba(255, 255, 255, .1), rgba(255, 255, 255, .8))",
               zIndex: -5,
+              ...gradientAnimationProps,
             }}
           />
-          <div className="p-5 mb-4 animated fadeInLeftBig delay-1s ">
+          <animated.div className="p-5 mb-4" style={heroAnimationProps}>
             <h1 className="display-4">{title}</h1>
             <p className="lead">{subtitle}</p>
             <Button href="#" color="primary" size="lg">
               {button_text}
             </Button>
-          </div>
+          </animated.div>
         </div>
       ) : null}
     </BackgroundImage>
