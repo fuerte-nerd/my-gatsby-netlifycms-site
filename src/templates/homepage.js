@@ -34,7 +34,6 @@ export default function homepage({ data }) {
           left: 0,
           background: `linear-gradient(to bottom left, rgba(255, 255, 255, .1), rgba(255, 255, 255, .8)`,
           zIndex: -5,
-          overflow: 'hidden'
         }}/>
       <div className="p-5 mb-4 animated fadeInLeftBig delay-2s ">
         <h1 className="display-4">{title}</h1>
