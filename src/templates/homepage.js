@@ -4,8 +4,7 @@ import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
 import { Button } from "reactstrap"
-
-import { useSpring, animated } from "react-spring"
+import { Helmet } from "react-helmet"
 
 import "../components/styles.scss"
 
@@ -22,19 +21,6 @@ export default function Homepage({ data }) {
     setImageLoaded(true)
   }
 
-  const gradientAnimationProps = useSpring({
-    opacity: 1,
-    from: { opacity: 0 },
-    delay: 1000,
-  })
-  const heroAnimationProps = useSpring({
-    from: {
-      transform: "translateX(-1000px)",
-    },
-    to: { transform: "translateX(0px)" },
-    delay: 2000,
-  })
-
   return (
     <BackgroundImage
       tag="div"
@@ -48,9 +34,12 @@ export default function Homepage({ data }) {
         alignItems: "flex-end",
       }}
     >
+      <Helmet>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"/>
+      </Helmet>
       {imageLoaded ? (
         <div>
-          <animated.div
+          <div
             style={{
               position: "absolute",
               top: 0,
@@ -60,16 +49,15 @@ export default function Homepage({ data }) {
               background:
                 "linear-gradient(to bottom left, rgba(255, 255, 255, .1), rgba(255, 255, 255, .8))",
               zIndex: -5,
-              ...gradientAnimationProps,
             }}
           />
-          <animated.div className="p-5 mb-4" style={heroAnimationProps}>
+          <div className="p-5 mb-4 animated fadeInLeftBig delay-1s faster">
             <h1 className="display-4">{title}</h1>
             <p className="lead">{subtitle}</p>
             <Button href="#" color="primary" size="lg">
               {button_text}
             </Button>
-          </animated.div>
+          </div>
         </div>
       ) : null}
     </BackgroundImage>
