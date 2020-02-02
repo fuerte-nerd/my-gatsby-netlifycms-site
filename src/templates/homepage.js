@@ -37,7 +37,7 @@ export default function Homepage({ data }) {
       <Helmet>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"/>
       </Helmet>
-      {imageLoaded ? (
+      {/* {imageLoaded ? ( */}
         <div>
           <div
             style={{
@@ -51,7 +51,7 @@ export default function Homepage({ data }) {
               zIndex: -5,
             }}
           />
-          <div className="p-5 mb-4 animated fadeInLeftBig delay-1s faster">
+          <div className="p-5 mb-4 animated fadeInLeftBig delay-2s faster">
             <h1 className="display-4">{title}</h1>
             <p className="lead">{subtitle}</p>
             <Button href="#" color="primary" size="lg">
@@ -59,7 +59,7 @@ export default function Homepage({ data }) {
             </Button>
           </div>
         </div>
-      ) : null}
+      {/* ) : null} */}
     </BackgroundImage>
   )
 }
