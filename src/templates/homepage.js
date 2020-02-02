@@ -26,7 +26,7 @@ export default function homepage({ data }) {
         alignItems: 'flex-end'
       }}
     >
-        <div className="animated fadeIn delay-1s" style={{
+        <div className="animated fadeIn delay-1s slow" style={{
           position: 'absolute',
           top: 0,
           right: 0,
